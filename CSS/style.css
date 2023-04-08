@@ -1,0 +1,139 @@
+*{margin: 0;padding: 0;}
+:root {
+    /* Colors */
+    --main-bg-color: #333;
+    --main-fg-color: #fff;
+    --main-highlight-color: #ffd700;
+    --main-body-text: black;
+    --main-box-shadow: black;
+
+    /* Fonts */
+    --main-header-font: 'Lato', sans-serif;
+    --main-body-font: ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;
+}
+
+/*--------------------- Header --------------------- */
+header {
+    background-color: var(--main-bg-color);
+    /* Using the defined variable */
+    font-family: var(--main-header-font);
+    font-weight: 750;    
+}
+
+.navbar {padding: 20px;}
+/* left center and right for 3 items in the respective position */
+.navbar__left {
+    display: flex;
+    align-items: center;
+}  
+.navbar__center {
+    flex-grow: 1;
+    text-align: center;
+}  
+.navbar__right {
+    display: flex;
+    align-items: center;
+}
+
+.navbar__logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+  
+.navbar__menu {
+    padding: 20px;
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}  
+.navbar__menu li {margin-left: 20px;}  
+.navbar__menu li:first-child {margin-left: 0;}  
+.navbar__menu a {
+    text-decoration: none;
+    color: var(--main-fg-color);
+    font-size: 1rem;
+    transition: color 0.2s ease-in-out;
+    padding:0px 15px;
+}  
+.navbar__menu a:hover {color: var(--main-highlight-color);}
+
+/* pseudo loading progress bar */
+@keyframes loading-animation{
+    0%{
+        width: 0vw;
+        height: 0.5vh;
+    }
+    100%{
+        width: 100vw;
+        height: 0.5vh;
+    }
+}
+.progressBar{
+    margin: 0;padding: 0;
+    background: var(--main-highlight-color);
+    height: 0vh;
+    animation: loading-animation 1s ease-in-out 0s 1 normal;
+}
+/* --------------------------------------------------------- */
+/* -------------------- Welcome Section -------------------- */
+.welcome-screen{
+    font-family: var(--main-body-font);
+    display: flex;
+    margin: 0px 30px;
+    align-items: center;
+}
+/* Might remove this if the site looks asymmiterical */
+.welcome-writing{
+    margin-left: 40px;
+    /* min-width: 600px; */
+}
+/* --------------------------------------------------------- */
+/* ------------------ Recommended Section ------------------ */
+.recommended-courses{
+    font-family: var(--main-body-font);
+    margin: 30px;
+    justify-content: center;
+}
+.recommended-header{
+    text-align: center;
+}
+.card {
+    display: flex;
+    justify-content: center;
+    font-family: 'ubuntu', sans-serif;
+    max-width: 91vw;
+    margin: 10px auto;
+    background-color: white;
+}
+
+.cards {
+    display: flex;
+    overflow: hidden;
+    border-radius: 25px;
+    margin: 0px 15px;
+    box-shadow: 0px 0px 11px -5px var(--main-box-shadow);
+    max-width: 380px;
+}
+.cards:hover{
+    box-shadow: 0px 0px 15px -4px var(--main-box-shadow);
+}
+.card-item {
+    display: inline-flex;
+    justify-content: center;
+    flex-direction: column;
+    border-radius: 25px;
+}
+.card-item img{
+    border-radius: 25px;
+}
+.lines{
+    color: var(--main-body-text);    
+    text-decoration: none;
+    margin: 3px 15px 15px 15px;
+}
+.lines p{
+    margin: 5px 0px;
+}
+/* --------------------------------------------------------- */
