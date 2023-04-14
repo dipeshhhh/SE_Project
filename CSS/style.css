@@ -90,6 +90,53 @@ header {
     /* min-width: 600px; */
 }
 /* --------------------------------------------------------- */
+/* ------------------ Learn Course Anims. ------------------ */
+#learnText {
+    font-size: 24px;
+    display: inline-block;
+    font-family: sans-serif;
+    color: black;
+    overflow: hidden;
+    white-space: nowrap;
+}
+#text-container {
+    display: inline-block;
+    /* position: absolute; */
+    position: relative;
+    max-height: 25px;
+    min-height: 24px;
+}
+#text {
+    font-size: 24px;
+    display: inline-block;
+    font-family: sans-serif;
+    color: black;
+    overflow: hidden;
+    border-right: 3px solid black;
+    white-space: nowrap;
+    min-height: 24px;
+}
+#cursor {
+    min-height: 28px;
+    display: inline-block;
+    position: absolute;
+    width: 3px;
+    height: 24px;
+    background-color: black;
+    animation: blink 0.8s infinite;
+}
+@keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+}
+@keyframes erasing {
+    from { width: 100% }
+    to { width: 0 }
+}
+@keyframes blink {50% { opacity: 1% }}
+.typing {animation: typing 1s steps(40, end) forwards;}
+.erasing {animation: erasing 0.5s steps(40, end) forwards;}
+/* --------------------------------------------------------- */
 /* ------------------ Recommended Section ------------------ */
 .recommended-courses{
     font-family: var(--main-body-font);
@@ -98,35 +145,6 @@ header {
 }
 .recommended-header{
     text-align: center;
-}
-.card {
-    display: flex;
-    justify-content: center;
-    font-family: 'ubuntu', sans-serif;
-    max-width: 91vw;
-    margin: 10px auto;
-    background-color: white;
-}
-
-.cards {
-    display: flex;
-    overflow: hidden;
-    border-radius: 25px;
-    margin: 0px 15px;
-    box-shadow: 0px 0px 11px -5px var(--main-box-shadow);
-    max-width: 380px;
-}
-.cards:hover{
-    box-shadow: 0px 0px 15px -4px var(--main-box-shadow);
-}
-.card-item {
-    display: inline-flex;
-    justify-content: center;
-    flex-direction: column;
-    border-radius: 25px;
-}
-.card-item img{
-    border-radius: 25px;
 }
 .lines{
     color: var(--main-body-text);    

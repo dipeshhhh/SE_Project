@@ -4,27 +4,29 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Title Name? -->
+
     <title>MonkeyLearn | Online learning platform</title>
     <link rel="stylesheet" href="../CSS/style.css">
     <link rel="stylesheet" href="../CSS/utils.css">
-    <script src="../JS/index.js"></script>
 </head>
 <body>
     <header>
         <nav class="navbar">
             <ul class="navbar__menu">
                 <li id="icon-and-name" class="navbar__left">
-                    <!-- Icon and Name here -->
+                    <!-- Icon here -->
                     <a href="./index.html"> <img src="" alt="Icon"> </a>
                     <a href="./index.html">MonkeyLearn</a>
                 </li>
                 <li id="courses" class="navbar__center">
                     <a href="./courses.html">Courses:</a>
+                    
                     <!-- link to courses here (course names should be dynamically updated (top 3 most viewed courses))-->
-                    <a href=".course1">Course1</a>
-                    <a href=".course2">Course2</a>
-                    <a href=".course3">Course3</a>
+                    
+                    <!-- WARNING: The empty space between is necessary  -->
+                    <a href="#" id="TC1"> </a>
+                    <a href="#" id="TC2"> </a>
+                    <a href="#" id="TC3"> </a>
                 </li>
                 <li class="navbar__right">
                     <a href="./login">Login</a>
@@ -39,11 +41,17 @@
             <div class="welcome-writing">
                 <!-- This should be changed to "Welcome <user name>"  when logged in -->
                 <h1 class="welcome-user">Welcome to Monkey Learn</h1>
-                <h3>Monkey see, monkey learn!</h2>
+                <h3>Monkey see, monkey learn!</h3>
                 
                 <br>
+
                 <!-- This should also dynamically change as different course's names -->
-                <h3 class="learn-courses">Learn...</h3>
+                <h4>
+                    <span id="learnText">Learn </span><div id="text-container">
+                        <span id="text"></span><span id="cursor"></span>
+                    </div>
+                </h4>
+
                 <p class="welcome-message">Welcome to MonkeyLearn! Our platform offers a wide range of courses taught by experts, designed to help you achieve your learning goals. With our user-friendly interface and interactive tools, learning has never been easier. Take courses at your own pace from anywhere in the world. Thank you for choosing us as your learning partner!</p>
             </div>
             <div class="welcome-image">
@@ -55,58 +63,11 @@
             <div class="recommended-header">
                 <h2>Recommended Courses</h2>
             </div>
-            <div class="card">
-                <!-- These cards will be added by JavaScript later and are currently written here for reference -->
-                <div class="cards">
-                    <!-- need to link to appropriate link -->
-                        <a href="#" class="link-to-course">
-                        <div class="card-item">
-                            <!-- Image size (px): 380 x 200 (W x H) -->
-                            <!-- Need to make custom temporary course image -->
-                            <img src="https://source.unsplash.com/380x200/?Code">
-                            <div class="lines text-center">
-                                <!-- Need title and description from backend (of top 3 viewed courses)-->
-                                <p class="card-title">Course Title</p>
-                                <p class="card-description">This course is about somthing this description describes. Enjoy Learning :)</p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                
-                <div class="cards">
-                    <!-- need to link to appropriate link -->
-                        <a href="#" class="link-to-course">
-                        <div class="card-item">
-                            <!-- Image size (px): 380 x 200 (W x H) -->
-                            <!-- Need to make custom temporary course image -->
-                            <img src="https://source.unsplash.com/380x200/?Technology">
-                            <div class="lines text-center">
-                                <!-- Need title and description from backend (of top 3 viewed courses)-->
-                                <p class="card-title">Course Title</p>
-                                <p class="card-description">This course is about somthing this description describes. Enjoy Learning :)</p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                
-                <div class="cards">
-                    <!-- need to link to appropriate link -->
-                        <a href="#" class="link-to-course">
-                        <div class="card-item">
-                            <!-- Image size (px): 380 x 200 (W x H) -->
-                            <!-- Need to make custom temporary course image -->
-                            <img src="https://source.unsplash.com/380x200/?Learning">
-                            <div class="lines text-center">
-                                <!-- Need title and description from backend (of top 3 viewed courses)-->
-                                <p class="card-title">Course Title</p>
-                                <p class="card-description">This course is about somthing this description describes. Enjoy Learning :)</p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-            </div>
+            <!-- Below div is dynamically updated by JavaScript -->
+            <div class="cards" id="card-container"></div>
         </section>
     </main>
     <footer></footer>
+    <script src="../JS/index.js"></script>
 </body>
 </html>
