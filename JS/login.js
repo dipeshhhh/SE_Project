@@ -1,4 +1,4 @@
-const form = document.getElementById("login-form");
+const form = document.getElementById("loginSignup-form");
 const username = document.getElementById("username");
 const password = document.getElementById("password");
 const passwordBox = document.getElementById("password");
@@ -38,7 +38,7 @@ form.addEventListener("submit", (event) => {
   }
 
   if (username.value !== "" && password.value !== "") {
-    const card = document.getElementsByClassName("card-login")[0];
+    const card = document.getElementsByClassName("card-loginSignup")[0];
     
     // Implement wrong username and password testing here
     // agar login failed to ye true
