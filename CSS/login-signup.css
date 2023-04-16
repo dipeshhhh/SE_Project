@@ -1,19 +1,26 @@
 *{font-family: 'ubuntu', sans-serif;}
-.card-login {
+
+main{
     display: flex;
-    flex-direction: column;
-    position: absolute;
-    left: 33.33%;
-    right: 33.33%;
-    top: 33.33%;
     justify-content: center;
     align-items: center;
+    margin-top: 45vh;
+    max-height: 0;
+}
+
+.card-loginSignup {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-left: 1.25rem;
+    padding-bottom: 0.5rem;
     width: 33.33%;
     border-radius: 25px;
     box-shadow: 0px 0px 11px -5px var(--main-box-shadow); 
 }
 
-.card-login-item {
+.card-loginSignup-item {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -24,11 +31,24 @@
 
 /* --------- */
 
+.loginSignup-form{
+    display: flex;
+    justify-content: center;
+}
+
+.register-name{
+    display: flex;
+    flex-direction: row;
+    margin: 1rem 0.7rem 0 0;
+}
+
 .form-group {
     margin-top: 1rem;
 }
+
 input[type="text"],
-input[type="password"] {
+input[type="password"], 
+input[type="email"] {
     width: 91%;
     padding: 0.5rem;
     font-size: 1rem;
@@ -38,21 +58,20 @@ input[type="password"] {
     transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 input[type="text"]:focus,
-input[type="password"]:focus {
+input[type="password"]:focus,
+input[type="email"]:focus {
     border-color: var(--main-highlight-color);
     box-shadow: 0 0 0 0.2rem var(--main-highlight-color);
 }
 
-#username-error{
+.error-message{
     color: var(--main-error-color);
     margin-top: 5px;
 }
-#password-error{
+
+#incorrect-user, #register-error{
     color: var(--main-error-color);
-    margin-top: 5px;
-}
-#incorrect-user{
-    color: var(--main-error-color);
+    text-align: center;
 }
 
 .btn {
@@ -77,4 +96,8 @@ input[type="password"]:focus {
 .btn:focus {
     outline: none;
     box-shadow: 0 0 0 0.2rem var(--main-highlight-color);
+}
+
+#register-button{
+    max-width: 96%;
 }
