@@ -1,8 +1,6 @@
 const form = document.getElementById("loginSignup-form");
 const username = document.getElementById("username");
 const password = document.getElementById("password");
-const passwordBox = document.getElementById("password");
-const usernameBox = document.getElementById("username");
 const usernameError = document.getElementById("username-error");
 const passwordError = document.getElementById("password-error");
 const incorrectUserError = document.getElementById("incorrect-user");
@@ -21,20 +19,20 @@ form.addEventListener("submit", (event) => {
 
   if (username.value === "") {
     usernameError.textContent = "Please enter your username";
-    usernameBox.style.boxShadow = "0 0 0 0.2rem var(--main-error-color)";
+    username.style.boxShadow = "0 0 0 0.2rem var(--main-error-color)";
   } else {
     usernameError.textContent = "";
-    usernameBox.style.boxShadow = "";
-    resetFocus(usernameBox);
+    username.style.boxShadow = "";
+    resetFocus(username);
   }
 
   if (password.value === "") {
     passwordError.textContent = "Please enter your password";
-    passwordBox.style.boxShadow = "0 0 0 0.2rem var(--main-error-color)";
+    password.style.boxShadow = "0 0 0 0.2rem var(--main-error-color)";
   } else {
     passwordError.textContent = "";
-    passwordBox.style.boxShadow = "";
-    resetFocus(passwordBox);
+    password.style.boxShadow = "";
+    resetFocus(password);
   }
 
   if (username.value !== "" && password.value !== "") {
@@ -52,7 +50,6 @@ form.addEventListener("submit", (event) => {
       // Maybe remove these shadow thingies ?
       card.style.boxShadow = "0px 0px 20px 2px var(--main-correct-color)";      
       incorrectUserError.textContent = " ";
-
       form.submit();
     }
   }
