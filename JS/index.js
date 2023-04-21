@@ -2,7 +2,67 @@
 // .top 3 courses
 // .and link to their resourses (inside res folder) i.e. image, title, description
 
+// This part is for dynamic top3 courses heading
+// These array should contain the top 3 most viewed courses in past week from the DataBase
+let topCoursesArray = ["Course 1", "Course 2", "Course 3"];
+// These are links corresponding to the respective courses
+let topCoursesArrayLinks = ["#", "#", "#"];
+let headerCourses = [
+  document.getElementById("TC1"),
+  document.getElementById("TC2"),
+  document.getElementById("TC3"),
+]
+for(let i=0; i<3; i++){
+  headerCourses[i].textContent = topCoursesArray[i];
+  headerCourses[i].href = topCoursesArrayLinks[i];
+}
+
+// This part is for the infinitely updating Learn <course> text
+// This array should be updated by course names from Database
+let textArray = ["Some Course", "Another Course", "Yet Another Course"];
+let index = 0;
+
+const textElement = document.getElementById("text");
+
+function typeWriter(text, i, callback) {
+  if (i < text.length) {
+    textElement.innerHTML += text.charAt(i);
+    setTimeout(() => typeWriter(text, i + 1, callback), 100);
+  } else {
+    callback();
+  }
+}
+
+function eraseText(i, callback) {
+  if (i >= 0) {
+    textElement.innerHTML = textElement.innerHTML.slice(0, i);
+    setTimeout(() => eraseText(i - 1, callback), 50);
+  } else {
+    callback();
+  }
+}
+
+function typeAndEraseText() {
+  const currentText = textArray[index % textArray.length];
+  index++;
+
+  typeWriter(currentText, 0, () => {
+    setTimeout(() => {
+      textElement.classList.add("erasing");
+      eraseText(textElement.innerHTML.length - 1, () => {
+        textElement.classList.remove("erasing");
+        typeAndEraseText();
+      });
+    }, 1000);
+  });
+}
+
+typeAndEraseText();
+
+// This part is for generating and displaying cards
+
 // Maybe Make a module for this card thing
+
 class Card {
     constructor(title, description, courseLink='#', image='#') {
         this.title = title;
@@ -62,6 +122,7 @@ class Card {
         return cardElement;
     }
 }
+
 // This array should be updated by 3 courses from Database
 // can use machine learning here to recommend user some courses
 let cards = [
@@ -74,62 +135,3 @@ divThingy = document.getElementById("card-container");
 divThingy.appendChild(cards[0].render());
 divThingy.appendChild(cards[1].render());
 divThingy.appendChild(cards[2].render());
-
-// This part is for dynamic top3 courses heading
-// These array should contain the top 3 most viewed courses in past week from the DataBase
-let topCoursesArray = ["Course 1", "Course 2", "Course 3"];
-// These are links corresponding to the respective courses
-let topCoursesArrayLinks = ["#", "#", "#"];
-let headerCourses = [
-  document.getElementById("TC1"),
-  document.getElementById("TC2"),
-  document.getElementById("TC3"),
-]
-for(let i=0; i<3; i++){
-  headerCourses[i].textContent = topCoursesArray[i];
-  headerCourses[i].href = topCoursesArrayLinks[i];
-}
-
-
-
-// This part is for the infinitely updating Learn <course> text
-// This array should be updated by course names from Database
-let textArray = ["Some Course", "Another Course", "Yet Another Course"];
-let index = 0;
-
-const textElement = document.getElementById("text");
-
-function typeWriter(text, i, callback) {
-  if (i < text.length) {
-    textElement.innerHTML += text.charAt(i);
-    setTimeout(() => typeWriter(text, i + 1, callback), 100);
-  } else {
-    callback();
-  }
-}
-
-function eraseText(i, callback) {
-  if (i >= 0) {
-    textElement.innerHTML = textElement.innerHTML.slice(0, i);
-    setTimeout(() => eraseText(i - 1, callback), 50);
-  } else {
-    callback();
-  }
-}
-
-function typeAndEraseText() {
-  const currentText = textArray[index % textArray.length];
-  index++;
-
-  typeWriter(currentText, 0, () => {
-    setTimeout(() => {
-      textElement.classList.add("erasing");
-      eraseText(textElement.innerHTML.length - 1, () => {
-        textElement.classList.remove("erasing");
-        typeAndEraseText();
-      });
-    }, 1000);
-  });
-}
-
-typeAndEraseText();
