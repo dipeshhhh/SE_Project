@@ -1,0 +1,117 @@
+/* Customize scrollbars later */
+:root {
+    --main-video-width: 920px;
+    --main-video-height: 518px;
+}
+
+.nodecoration {
+    text-decoration: none;
+    color: var(--main-body-text);
+}
+
+.video-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+#video-player {
+    width: var(--main-video-width);
+    height: var(--main-video-height);
+    margin: 10px;
+    border-radius: 5px;
+}
+/* -----------playlist-------------- */
+.playlist-container {
+    height: var(--main-video-height);
+    box-shadow: 0px 0px 11px -6px var(--main-box-shadow);
+    margin-right: 15px;
+}
+#playlist-heading{
+    font-family: var(--main-header-font);
+    text-align: center;
+    margin: 3px;
+}
+.playlist-items{
+    box-shadow: 0px 0px 11px -7px var(--main-box-shadow);
+    overflow-y: scroll;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    height: calc(var(--main-video-height) - 2.1rem);
+    scrollbar-color: var(--main-bg-color) var(--main-fg-color);
+    scrollbar-width: thin;
+}
+.playlist-item {
+    display: flex;
+    border-radius: 5px;
+    width: 368px;
+    height: 50px;
+    padding: 15px;
+    align-items: center;
+    overflow: hidden;
+    margin-bottom: 5px; 
+    box-shadow: 0px 0px 11px -4px var(--main-box-shadow);
+}
+.playlist-text {
+    font-family: var(--main-body-font);
+    margin: 3px;
+}
+
+.playlist-items::-webkit-scrollbar {
+    width: 6px;
+}
+.playlist-items::-webkit-scrollbar-track {
+    background: var(--main-fg-color);
+    border-radius: 5px;
+}
+.playlist-items::-webkit-scrollbar-thumb {
+    background: var(--main-bg-color);
+    border-radius: 5px;
+}
+.playlist-items::-webkit-scrollbar-thumb:hover {
+    background: var(--main-bg-highlight-color);
+    border-radius: 5px;
+}
+
+/* ------------TITLE DESC------------ */
+.video-information-container {
+    margin: 0px 15px 15px 15px;
+    font-family: var(--main-body-font);
+}
+#video-title {
+    margin-bottom: 10px;
+}
+
+/* -------NAV BUTTONS------- */
+.navigation-buttons {
+    margin: 15px 15px 5px 15px;
+    display: flex;
+    flex-direction: row;
+}
+.nav-button {
+    background-color: var(--main-bg-color);
+    color: var(--main-fg-color);
+    padding: 10px;
+    width: 75px;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+}
+.nav-button:hover{
+    background-color: var(--main-bg-highlight-color);
+}
+#previous-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.empty-space-fill{
+    display: flex;
+    flex-grow: 1;
+}
+#next-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
