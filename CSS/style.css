@@ -1,8 +1,12 @@
-*{margin: 0;padding: 0;
+*{
+    margin: 0;padding: 0;
+    scrollbar-color: var(--main-bg-color) var(--main-fg-color);
+    scrollbar-width: thin;
 }
 :root {
     /* Colors */
     --main-bg-color: #333;
+    --main-bg-highlight-color: #616161;
     --main-fg-color: #fff;
     --main-highlight-color: #ffd700;
     --main-body-text: black;
