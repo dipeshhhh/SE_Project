@@ -20,6 +20,21 @@
     color: var(--main-highlight-color);
 }
 
+/* Scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
+}
+::-webkit-scrollbar-track {
+    background: var(--main-fg-color);
+}
+::-webkit-scrollbar-thumb {
+    background: var(--main-bg-color);
+}
+::-webkit-scrollbar-thumb:hover {
+    background: var(--main-bg-highlight-color);
+}
+
+/* Cards */
 .cards {
     display: flex;
     justify-content: center;
