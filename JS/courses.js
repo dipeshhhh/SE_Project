@@ -90,3 +90,54 @@ for(let i=0; i<cards.length; i++){
 }
 
 // Implement category selection here
+function getCoursesCategories() {
+    //!!!!!!!!!!!!!!!!!!!!!!!!!!
+    // This object list is to be updated through database
+    const courses = [
+        { title: 'Introduction to coding', category: 'coding' },
+        { title: 'Algebra basics', category: 'maths' },
+        { title: 'Stock trading', category: 'finance' },
+        { title: 'Marketing strategies', category: 'business' },
+    ];
+    const categories = ['ALL'];
+    courses.forEach((course) => {
+        if (!categories.includes(course.category)) {
+            categories.push(course.category.toUpperCase());
+        }
+    });
+    return categories;
+}
+
+const categories = getCoursesCategories(); // get categories from the courses.js file
+const dropdownOptions = document.getElementById('dropdown-options');
+const dropdownButton = document.getElementById('course_category');
+const defaultCategory = dropdownButton.innerText;
+
+// create the options and add click event listener to change the dropdown button text
+categories.forEach((category) => {
+    const option = document.createElement('a');
+    option.href = '#';
+    option.innerText = category;
+    option.addEventListener('click', (event) => {
+        event.preventDefault();
+        dropdownButton.innerText = category;
+    });
+    dropdownOptions.appendChild(option);
+});
+
+// add click event listener to show/hide the dropdown options
+dropdownButton.addEventListener('click', (event) => {
+    event.preventDefault();
+    if (dropdownOptions.style.display === 'none') {
+        dropdownOptions.style.display = 'block';
+    } else {
+        dropdownOptions.style.display = 'none';
+    }
+});
+
+// add click event listener to hide the dropdown options when clicked outside
+document.addEventListener('click', (event) => {
+    if (!event.target.matches('.dropdown')) {
+        dropdownOptions.style.display = 'none';
+    }
+});

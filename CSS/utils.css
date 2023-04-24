@@ -1,6 +1,9 @@
 .text-center{
     text-align:center;
 }
+.text-decoration-none{
+    text-decoration: none;
+}
 .hover-highlight:hover{
     color: var(--main-highlight-color);
     text-shadow: 0px 0px 5px var(--main-bg-color);
