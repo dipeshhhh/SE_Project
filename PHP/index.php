@@ -1,3 +1,6 @@
+<?php 
+    include("../HTML/navbar-everyone.html");
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,32 +13,6 @@
     <link rel="stylesheet" href="../CSS/utils.css">
 </head>
 <body>
-    <header>
-        <nav class="navbar">
-            <ul class="navbar__menu">
-                <li id="icon-and-name" class="navbar__left">
-                    <!-- Icon here -->
-                    <a href="./index.html"> <img src="" alt="Icon"> </a>
-                    <a href="./index.html">MonkeyLearn</a>
-                </li>
-                <li id="courses" class="navbar__center">
-                    <a href="./courses.html">Courses:</a>
-                    
-                    <!-- link to courses here (course names should be dynamically updated (top 3 most viewed courses))-->
-                    
-                    <!-- WARNING: The empty space between is necessary  -->
-                    <a href="#" id="TC1"> </a>
-                    <a href="#" id="TC2"> </a>
-                    <a href="#" id="TC3"> </a>
-                </li>
-                <li class="navbar__right">
-                    <a href="./login.html">Login</a>
-                    <a href="./signup.html">Signup</a>
-                </li>
-            </ul>
-        </nav>
-        <div class="progressBar"></div>
-    </header>
     <main>
         <section class="welcome-screen">
             <div class="welcome-writing">

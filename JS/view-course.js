@@ -1,16 +1,3 @@
-let topCoursesArray = ["Course 1", "Course 2", "Course 3"];
-// These are links corresponding to the respective courses
-let topCoursesArrayLinks = ["#", "#", "#"];
-let headerCourses = [
-  document.getElementById("TC1"),
-  document.getElementById("TC2"),
-  document.getElementById("TC3"),
-]
-for(let i=0; i<3; i++) {
-  headerCourses[i].textContent = topCoursesArray[i];
-  headerCourses[i].href = topCoursesArrayLinks[i];
-}
-
 class Video {
   constructor(vid_no, title, description, video, link="#") {
     this.vid_no = vid_no;
@@ -52,6 +39,7 @@ class Video {
       videoPlayer.src = `${this.video}`;
       video_Title.innerText = `${this.title}`;
       videoDescription.innerText = `${this.description}`;
+      currentVideo = this;
     });
     
     return cardLink;
@@ -90,7 +78,7 @@ for(let i=0; i<videos.length; i++){
 }
 
 /////////////// Navigation  Buttons ////////////////
-let currentVideo = videos[0];
+var currentVideo = videos[0];
 const previous_button = document.getElementById("previous-btn");
 const next_button = document.getElementById("next-btn");
 

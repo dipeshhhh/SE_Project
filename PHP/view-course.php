@@ -1,41 +1,19 @@
+<?php 
+    include("../HTML/navbar-everyone.html");
+    // include("../HTML/navbar-logged-in.html");
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> </title>    
+    <title>&lt;Course_Name&gt; | MonkeyLearn</title>    
     <link rel="stylesheet" href="../CSS/style.css">
     <link rel="stylesheet" href="../CSS/utils.css">
     <link rel="stylesheet" href="../CSS/view-course.css">
 </head>
 <body>
-    <header>
-        <nav class="navbar">
-            <ul class="navbar__menu">
-                <li id="icon-and-name" class="navbar__left">
-                    <!-- Icon here -->
-                    <a href="./index.html"> <img src="" alt="Icon"> </a>
-                    <a href="./index.html">MonkeyLearn</a>
-                </li>
-                <li id="courses" class="navbar__center">
-                    <a href="./courses.html">Courses:</a>
-                    
-                    <!-- link to courses here (course names should be dynamically updated (top 3 most viewed courses))-->
-                    
-                    <!-- WARNING: The empty space between is necessary  -->
-                    <a href="#" id="TC1"> </a>
-                    <a href="#" id="TC2"> </a>
-                    <a href="#" id="TC3"> </a>
-                </li>
-                <li class="navbar__right">
-                    <a href="./login.html">Login</a>
-                    <a href="./signup.html">Signup</a>
-                </li>
-            </ul>
-        </nav>
-        <div class="progressBar"></div>
-    </header>
     <main>
         <!-- ALL OF THIS WILL BE DYNAMIC USING JS -->
         <section class="video-container" id="video-container">
@@ -63,5 +41,6 @@
     </main>
     <footer></footer>
     <script src="../JS/view-course.js"></script>
+    <!-- <script src="../JS/loggedIn-index.js"></script> -->
 </body>
 </html>

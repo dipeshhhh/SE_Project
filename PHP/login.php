@@ -1,3 +1,6 @@
+<?php
+    include("../HTML/navbar-login-signup.html");
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,18 +13,6 @@
     <link rel="stylesheet" href="../CSS/login-signup.css">
 </head>
 <body>
-    <header>
-        <nav class="navbar">
-            <ul class="navbar__menu">
-                <li id="icon-and-name" class="navbar__center">
-                    <!-- Icon here -->
-                    <a href="./index.html"> <img src="" alt="Icon"> </a>
-                    <a href="./index.html">MonkeyLearn</a>
-                </li>
-            </ul>
-        </nav>
-    </header>
-    
     <main>
         <div class="card-loginSignup">
             
@@ -48,7 +39,7 @@
                 </div>
             </form>
             <!-- Maybe say "Not Registered?" instead of "New here?" -->
-            <h5 class="card-loginSignup-item"><p>New here? <a href="signup.html">Sign Up</a></p></h5>
+            <h5 class="card-loginSignup-item"><p>New here? <a href="signup.php">Sign Up</a></p></h5>
         </div>
     </main>
 

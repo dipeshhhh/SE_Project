@@ -1,3 +1,6 @@
+<?php 
+    include("../HTML/navbar-logged-in.html");
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,39 +13,6 @@
     <link rel="stylesheet" href="../CSS/user-profile.css">
 </head>
 <body>
-    <header>
-        <nav class="navbar">
-            <ul class="navbar__menu">
-                <li id="icon-and-name" class="navbar__left">
-                    <!-- Icon here -->
-                    <a href="./index.html"> <img src="" alt="Icon"> </a>
-                    <a href="./index.html">MonkeyLearn</a>
-                </li>
-                <li id="courses" class="navbar__center">
-                    <a href="./courses.html">Courses:</a>
-                    
-                    <!-- link to courses here (course names should be dynamically updated (top 3 most viewed courses))-->
-                    
-                    <!-- WARNING: The empty space between is necessary  -->
-                    <a href="#" id="TC1"> </a>
-                    <a href="#" id="TC2"> </a>
-                    <a href="#" id="TC3"> </a>
-                </li>
-                <!-- dropdownbtn = lg-dropdown -->
-                <li class="navbar__right">
-                    <a href="#" id="user-name"> </a>
-                    <div class="lg-dropdown">
-                        <a href="#" id="lg-dropbtn"></a>
-                        <div class="dropdown-content">
-                            <a href="#">Profile</a>
-                            <a href="#">Logout</a>
-                        </div>
-                    </div>
-                </li>
-            </ul>
-        </nav>
-        <div class="progressBar"> </div>
-    </header>
     <main>
         <h1 class="up-heading">User Profile</h1>
         <section id="user-details">

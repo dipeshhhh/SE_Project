@@ -1,3 +1,6 @@
+<?php
+    include("../HTML/navbar-login-signup.html");
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,18 +15,6 @@
 </head>
 
 <body>
-    <header>
-        <nav class="navbar">
-            <ul class="navbar__menu">
-                <li id="icon-and-name" class="navbar__center">
-                    <!-- Icon here -->
-                    <a href="./index.html"> <img src="" alt="Icon"> </a>
-                    <a href="./index.html">MonkeyLearn</a>
-                </li>
-            </ul>
-        </nav>
-    </header>
-
     <main>
         <div class="card-loginSignup">
 
@@ -68,7 +59,7 @@
             </form>
 
             <h5 class="card-loginSignup-item">
-                <p>Already Registered? <a href="login.html">Login</a></p>
+                <p>Already Registered? <a href="login.php">Login</a></p>
             </h5>
         </div>
     </main>
