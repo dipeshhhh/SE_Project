@@ -1,8 +1,42 @@
-// This part is for the infinitely updating Learn <course> text
-// This array should be updated by course names from Database
-let textArray = ["Some Course", "Another Course", "Yet Another Course"];
-let index = 0;
+import { Card } from "../JS/Modules/Card.js";
 
+// To shuffle the array coming from Database
+function shuffleArray(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+      [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
+  }
+// There is kinda no need to use this variable, because the shuffleArray() function updates the original array
+let suffled_courses = shuffleArray(courses_fromDB);
+
+// Setting up the textArray and cards array
+let cards = [];
+let textArray = [];
+
+for(let i=0; i<courses_fromDB.length; i++) {
+  textArray.push(courses_fromDB[i].ctitle);
+  if(i<3){
+    cards.push(
+      new Card(
+        courses_fromDB[i].cid,
+        courses_fromDB[i].ctitle,
+        courses_fromDB[i].cdesc_short,
+        courses_fromDB[i].clink
+      )
+    );
+  }
+}
+
+// This part is to show the recommended cards
+const card_container = document.getElementById("card-container");
+card_container.appendChild(cards[0].render());
+card_container.appendChild(cards[1].render());
+card_container.appendChild(cards[2].render());
+
+// This part is for the infinitely updating Learn <course> text
+let index = 0; // wut dis index do? I forgor x_x
 const textElement = document.getElementById("text");
 
 function typeWriter(text, i, callback) {
@@ -37,82 +71,4 @@ function typeAndEraseText() {
     }, 1000);
   });
 }
-
 typeAndEraseText();
-
-// This part is for generating and displaying cards
-
-// Maybe Make a module for this card thing
-
-class Card {
-    constructor(title, description, courseLink='#', image='#') {
-        this.title = title;
-        this.description = description;
-        this.courseLink = courseLink;
-        this.image = image;
-    }
-
-    render() {
-        // Creating A Card
-        const cardElement = document.createElement("div");
-        cardElement.classList.add("card");
-        
-        // Image size (px): 380 x 200 (W x H)
-        // Need to make custom temporary course image
-        // <img src="https://source.unsplash.com/380x200/?Code">
-        
-            // Creating link to course (so that when card is clicked on user will go to the course page)
-            const cardLink = document.createElement("a");
-            cardLink.classList.add("link-to-course");
-            cardLink.href = `${this.courseLink}`;
-            
-                // Adding Card Item div
-                const cardItem = document.createElement("div");
-                cardItem.classList.add("card-item")
-
-                    // Adding Card Image
-                    const cardImage = document.createElement("img");
-                    cardImage.setAttribute("src", `${this.image}`);
-                    cardImage.setAttribute("alt", `${this.title}`);
-                    cardImage.setAttribute("width", "380");
-                    cardImage.setAttribute("height", "200");
-                    cardItem.appendChild(cardImage);
-                    
-                    // Div Element to contain title and description
-                    const textDiv = document.createElement("div");
-                    textDiv.classList.add("lines");
-                    textDiv.classList.add("text-center");   
-
-                        // Adding Card Title
-                        const titleParagraph = document.createElement("p");
-                        titleParagraph.classList.add("card-title");
-                        titleParagraph.innerText = `${this.title}`;
-                        
-
-                        // Adding Card Description
-                        const descriptionParagraph = document.createElement("p");
-                        descriptionParagraph.classList.add("card-description");
-                        descriptionParagraph.innerText = `${this.description}`;
-                    
-                    textDiv.appendChild(titleParagraph);
-                    textDiv.appendChild(descriptionParagraph);
-                cardItem.appendChild(textDiv);
-            cardLink.appendChild(cardItem);
-        cardElement.appendChild(cardLink);
-
-        return cardElement;
-    }
-}
-
-// This array should be updated by 3 courses from Database
-// can use machine learning here to recommend user some courses
-let cards = [
-    new Card("Title", "Description", "#", "https://source.unsplash.com/380x200/?Code"),
-    new Card("Title", "Description", "#", "https://source.unsplash.com/380x200/?Universe"),
-    new Card("Title", "Description", "#", "https://source.unsplash.com/380x200/?Robot")
-];
-
-divThingy = document.getElementById("card-container");
-divThingy.appendChild(cards[0].render());
-divThingy.appendChild(cards[1].render());
-divThingy.appendChild(cards[2].render());

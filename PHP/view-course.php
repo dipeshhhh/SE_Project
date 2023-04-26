@@ -1,6 +1,35 @@
 <?php 
     include("../HTML/navbar-everyone.html");
     // include("../HTML/navbar-logged-in.html");
+    include("../PHP/database.php");
+
+    if (isset($_GET['cid'])) {
+        $cid = $_GET['cid'];
+        
+        $get_videos = "SELECT * FROM videos WHERE cid='".$cid."' ORDER BY vid_no ASC";
+        $get_courseName = "SELECT ctitle FROM courses WHERE cid='".$cid."'";
+
+        $result = mysqli_query($connection, $get_videos);
+        $result_courseName = mysqli_query($connection, $get_courseName);
+
+        $videos = array();
+        $courseName = array();
+
+        while($row1 = mysqli_fetch_assoc($result)) {
+            $videos[] = $row1;
+        }
+        while($row2 = mysqli_fetch_assoc($result_courseName)) {
+            $courseName[] = $row2;
+        }
+
+        $videos_json = json_encode($videos);
+        $courseName_json = json_encode($courseName);
+
+        echo "<script> const videos_json = ".$videos_json."; const courseName_fromDB = ".$courseName_json."; </script>";
+
+      } else {
+        echo "<script>alert('Illegal opening of this page go back!')</script>";
+      }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -8,7 +37,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>&lt;Course_Name&gt; | MonkeyLearn</title>    
+    <title id="head-title"> </title>    
     <link rel="stylesheet" href="../CSS/style.css">
     <link rel="stylesheet" href="../CSS/utils.css">
     <link rel="stylesheet" href="../CSS/view-course.css">
@@ -29,8 +58,8 @@
         </section>
 
         <section class="video-information-container">
-            <h2 id="video-title">This is chapter 1</h2>
-            <p id="video-description">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+            <h2 id="video-title"> </h2>
+            <p id="video-description"> </p>
         </section>
 
         <section class="navigation-buttons">

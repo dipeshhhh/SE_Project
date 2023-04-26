@@ -41,7 +41,7 @@
 .cards {
     display: flex;
     justify-content: center;
-    font-family: 'ubuntu', sans-serif;
+    font-family: var(--main-body-font);
     max-width: 91vw;
     margin: 10px auto;
     background-color: white;
@@ -67,6 +67,19 @@
             flex-direction: column;
             border-radius: 25px;
         }
-            .card-item img{
-                border-radius: 25px;
+        .card-item img{
+            border-radius: 25px;
+        }
+        .card p{
+            margin: 16px 16px 16px 16px;
+
+        }
+        .card-title{
+            text-align: left;
+            font-weight: 500;
+            font-size: x-large;
+            /* padding: 16px 16px 8x 16px; */
+            }
+            .card-description{
+                text-align: left;
             }

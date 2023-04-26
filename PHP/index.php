@@ -1,5 +1,20 @@
 <?php 
     include("../HTML/navbar-everyone.html");
+    include("../PHP/database.php");
+
+    $get_all_courses = "SELECT * FROM courses";
+    $result = mysqli_query($connection, $get_all_courses); // No error here, it's a bug from a VS Code extention
+
+    $courses = array();
+
+    while($row = mysqli_fetch_assoc($result)) {
+        $courses[] =  $row;
+    }
+
+    $courses_json = json_encode($courses);
+
+    // sending data to JavaScript
+    echo "<script>const courses_fromDB = " . $courses_json . ";</script>";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -16,7 +31,6 @@
     <main>
         <section class="welcome-screen">
             <div class="welcome-writing">
-                <!-- This should be changed to "Welcome <user name>"  when logged in -->
                 <h1 class="welcome-user">Welcome to Monkey Learn</h1>
                 <h3>Monkey see, monkey learn!</h3>
                 
@@ -33,7 +47,7 @@
             </div>
             <div class="welcome-image">
                 <!-- Need this image -->
-                <img src="../res/Welcome/welcome.png" alt="Welcome Image" height="350px">
+                <img src="../res/welcome/welcome.png" alt="Welcome Image" height="350px">
             </div>
         </section>
         <section id="recommended-courses" class="recommended-courses slider">
@@ -45,6 +59,6 @@
         </section>
     </main>
     <footer></footer>
-    <script src="../JS/index.js"></script>
+    <script type="module" src="../JS/index.js"></script>
 </body>
 </html>

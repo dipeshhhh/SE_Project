@@ -49,29 +49,32 @@ class Video {
     const videoPlayer = document.getElementById("video-player");
     const video_Title = document.getElementById("video-title");
     const videoDescription = document.getElementById("video-description");
-  
+    
     videoPlayer.src = `${this.video}`;
     video_Title.innerText = `${this.title}`;
     videoDescription.innerText = `${this.description}`;
   }
 }
 
-// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-// Array should be dynamically updated from database
-let videos = [
-  new Video('1', "This is chapter 1", "Some Description", "../res/courses/default/videos/chapter_1.mp4"),
-  new Video('2', "This is chapter 2", "Some Description2", "../res/courses/default/videos/chapter_2.mp4"),
-  new Video('3', "This is chapter 3", "Some Description3", "../res/courses/default/videos/chapter_3.mp4")
-];
-
-//////////////// Updating Playlist /////////////////
-
-// Playlist title = course name
-let courseName = "Default Course"; // This should come from database
+// head and playlist title
+let courseName = courseName_fromDB[0].ctitle;
+const head_title = document.getElementById("head-title");
+head_title.textContent = `${courseName} | MonkeyLearn`
 const playlistTitle = document.getElementById("playlist-title");
 playlistTitle.innerText = `${courseName}`;
 
 // playlist-items
+let videos = [];
+for(let i=0; i<videos_json.length; i++) {
+  videos.push(
+    new Video(
+      videos_json[i].vid_no,
+      videos_json[i].vtitle,
+      videos_json[i].vdesc,
+      videos_json[i].vlink
+    )
+  );
+}
 const playlist = document.getElementById("playlist-items");
 for(let i=0; i<videos.length; i++){
   playlist.appendChild(videos[i].render());
@@ -79,6 +82,7 @@ for(let i=0; i<videos.length; i++){
 
 /////////////// Navigation  Buttons ////////////////
 var currentVideo = videos[0];
+currentVideo.changeToCurrentVideo();
 const previous_button = document.getElementById("previous-btn");
 const next_button = document.getElementById("next-btn");
 

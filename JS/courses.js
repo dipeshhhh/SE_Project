@@ -1,95 +1,33 @@
-class Card {
-    constructor(title, description, courseLink='#', image='#') {
-        this.title = title;
-        this.description = description;
-        this.courseLink = courseLink;
-        this.image = image;
-    }
+import { Card } from "../JS/Modules/Card.js";
 
-    render() {
-        // Creating A Card
-        const cardElement = document.createElement("div");
-        cardElement.classList.add("card");
-        
-        // Image size (px): 380 x 200 (W x H)
-        // Need to make custom temporary course image
-        // <img src="https://source.unsplash.com/380x200/?Code">
-        
-            // Creating link to course (so that when card is clicked on user will go to the course page)
-            const cardLink = document.createElement("a");
-            cardLink.classList.add("link-to-course");
-            cardLink.href = `${this.courseLink}`;
-            
-                // Adding Card Item div
-                const cardItem = document.createElement("div");
-                cardItem.classList.add("card-item")
+let cards = [];
 
-                    // Adding Card Image
-                    const cardImage = document.createElement("img");
-                    cardImage.setAttribute("src", `${this.image}`);
-                    cardImage.setAttribute("alt", `${this.title}`);
-                    cardImage.setAttribute("width", "380");
-                    cardImage.setAttribute("height", "200");
-                    cardItem.appendChild(cardImage);
-                    
-                    // Div Element to contain title and description
-                    const textDiv = document.createElement("div");
-                    textDiv.classList.add("lines");
-                    textDiv.classList.add("text-center");   
-
-                        // Adding Card Title
-                        const titleParagraph = document.createElement("p");
-                        titleParagraph.classList.add("card-title");
-                        titleParagraph.innerText = `${this.title}`;
-                        
-
-                        // Adding Card Description
-                        const descriptionParagraph = document.createElement("p");
-                        descriptionParagraph.classList.add("card-description");
-                        descriptionParagraph.innerText = `${this.description}`;
-                    
-                    textDiv.appendChild(titleParagraph);
-                    textDiv.appendChild(descriptionParagraph);
-                cardItem.appendChild(textDiv);
-            cardLink.appendChild(cardItem);
-        cardElement.appendChild(cardLink);
-
-        return cardElement;
-    }
+for(let i=0; i<courses_fromDB.length; i++) {
+    cards.push(
+        new Card(
+            courses_fromDB[i].cid,
+            courses_fromDB[i].ctitle,
+            courses_fromDB[i].cdesc_short,
+            courses_fromDB[i].clink
+        )
+    );    
 }
 
+console.log(courses_fromDB);
+console.log(categories_fromDB);
+console.log(complete_categories_fromDB);
 
-// This array should get all the courses from database upload datewise (newest first)
-let cards = [
-    new Card("Title", "Description", "#", "https://source.unsplash.com/380x200/?Code"),
-    new Card("Title", "Description", "#", "https://source.unsplash.com/380x200/?Code"),
-    new Card("Title", "Description", "#", "https://source.unsplash.com/380x200/?Universe"),
-    new Card("Title", "Description", "#", "https://source.unsplash.com/380x200/?Universe"),
-    new Card("Title", "Description", "#", "https://source.unsplash.com/380x200/?Universe"),
-    new Card("Title", "Description", "#", "https://source.unsplash.com/380x200/?Universe"),
-    new Card("Title", "Description", "#", "https://source.unsplash.com/380x200/?Universe"),
-    new Card("Title", "Description", "#", "https://source.unsplash.com/380x200/?Robot")
-];
-
-divThingy = document.getElementById("card-container");
+const card_container = document.getElementById("card-container");
 for(let i=0; i<cards.length; i++){
-    divThingy.appendChild(cards[i].render());
+    card_container.appendChild(cards[i].render());
 }
 
 // Implement category selection here
 function getCoursesCategories() {
-    //!!!!!!!!!!!!!!!!!!!!!!!!!!
-    // This object list is to be updated through database
-    const courses = [
-        { title: 'Introduction to coding', category: 'coding' },
-        { title: 'Algebra basics', category: 'maths' },
-        { title: 'Stock trading', category: 'finance' },
-        { title: 'Marketing strategies', category: 'business' },
-    ];
     const categories = ['ALL'];
-    courses.forEach((course) => {
-        if (!categories.includes(course.category)) {
-            categories.push(course.category.toUpperCase());
+    categories_fromDB.forEach((category_fromDB) => {
+        if (!categories.includes(category_fromDB.category)) {
+            categories.push(category_fromDB.category.toUpperCase());
         }
     });
     return categories;
@@ -108,6 +46,49 @@ categories.forEach((category) => {
     option.addEventListener('click', (event) => {
         event.preventDefault();
         dropdownButton.innerText = category;
+        // DOM editing here
+        if(category.toString() === "ALL") {
+            cards = [];
+            for(let i=0; i<courses_fromDB.length; i++) {
+                cards.push(
+                    new Card(
+                        courses_fromDB[i].cid,
+                        courses_fromDB[i].ctitle,
+                        courses_fromDB[i].cdesc_short,
+                        courses_fromDB[i].clink
+                    )
+                );    
+            }
+            card_container.innerHTML = "";
+            for(let i=0; i<cards.length; i++) {
+                card_container.appendChild(cards[i].render());
+            }
+        } else {
+            card_container.innerHTML = "";
+            let n_cat = category.toLowerCase();
+            let cids = [];
+            cards = [];
+            for(let i=0; i<complete_categories_fromDB.length; i++) {
+                if(complete_categories_fromDB[i].category == n_cat) {
+                    cids.push(complete_categories_fromDB[i].cid);
+                }
+            }
+            for(let i=0; i<courses_fromDB.length; i++) {
+                if(cids.includes(courses_fromDB[i].cid)) {
+                    cards.push(
+                        new Card(
+                            courses_fromDB[i].cid,
+                            courses_fromDB[i].ctitle,
+                            courses_fromDB[i].cdesc_short,
+                            courses_fromDB[i].clink
+                        )
+                    );
+                }
+            }
+            for(let i=0; i<cards.length; i++) {
+                card_container.appendChild(cards[i].render());
+            }
+        }
     });
     dropdownOptions.appendChild(option);
 });
