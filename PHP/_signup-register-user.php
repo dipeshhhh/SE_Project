@@ -1,5 +1,5 @@
 <?php
-include("../PHP/database.php");
+include("../PHP/_database.php");
 
 $input = file_get_contents('php://input');
 $data = json_decode($input, true);

@@ -1,5 +1,5 @@
 <?php 
-    include("../PHP/navbar-logged-in.php");
+    include("../PHP/_navbar-logged-in.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">

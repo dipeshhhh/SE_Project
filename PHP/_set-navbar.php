@@ -1,7 +1,7 @@
 <?php 
     session_start();
     if((isset($_SESSION['is_logged_in'])) && ($_SESSION['is_logged_in'] == true)) {
-        include("../PHP/navbar-logged-in.php");
+        include("../PHP/_navbar-logged-in.php");
     } else {
         include("../HTML/navbar-everyone.html");
     }

@@ -55,7 +55,7 @@ async function checkUserNameAndEmail(username, email) {
         body: JSON.stringify({check_username: username, check_email: email})
     };
 
-    let response = await fetch("../PHP/signup-logic.php",options);
+    let response = await fetch("../PHP/_signup-logic.php",options);
     let data = await response.json();
 
     return [data.username_taken, data.email_taken];
@@ -68,7 +68,7 @@ async function register_user(username, password, firstname, lastname, email) {
         body: JSON.stringify({username: username, password: password, fname: firstname, lname: lastname, email: email})
     };
 
-    let response = await fetch("../PHP/signup-register-user.php",options);
+    let response = await fetch("../PHP/_signup-register-user.php",options);
     let data = await response.json();
 
     if(data.is_user_registered) {

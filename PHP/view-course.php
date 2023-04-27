@@ -1,6 +1,6 @@
 <?php 
-    include("../PHP/set-navbar.php");
-    include("../PHP/database.php");
+    include("../PHP/_set-navbar.php");
+    include("../PHP/_database.php");
 
     if (isset($_GET['cid'])) {
         $cid = $_GET['cid'];

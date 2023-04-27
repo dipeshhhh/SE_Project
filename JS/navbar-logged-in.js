@@ -25,5 +25,5 @@ const logout_link = document.getElementById("logout-link");
 
 // logout logic
 logout_link.addEventListener('click', () => {
-  window.location.href = "../PHP/logout-logic.php";
+  window.location.href = "../PHP/_logout-logic.php";
 })
