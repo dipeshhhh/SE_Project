@@ -8,14 +8,22 @@ for(let i=0; i<courses_fromDB.length; i++) {
             courses_fromDB[i].cid,
             courses_fromDB[i].ctitle,
             courses_fromDB[i].cdesc_short,
-            courses_fromDB[i].clink
+            courses_fromDB[i].clink,
+            session_logged_in,
+            session_username
         )
     );    
 }
 
-console.log(courses_fromDB);
-console.log(categories_fromDB);
-console.log(complete_categories_fromDB);
+// debugging
+// console.log(courses_fromDB);
+// console.log(categories_fromDB);
+// console.log(complete_categories_fromDB);
+if(session_logged_in.toString() == "1"){
+    session_logged_in = true;
+}
+// console.log(session_logged_in);
+// console.log(session_username);
 
 const card_container = document.getElementById("card-container");
 for(let i=0; i<cards.length; i++){
@@ -55,13 +63,17 @@ categories.forEach((category) => {
                         courses_fromDB[i].cid,
                         courses_fromDB[i].ctitle,
                         courses_fromDB[i].cdesc_short,
-                        courses_fromDB[i].clink
-                    )
-                );    
-            }
-            card_container.innerHTML = "";
+                        courses_fromDB[i].clink,
+                        session_logged_in,
+                        session_username
+                        )
+                        );    
+                    }
+                    card_container.innerHTML = "";
+                    
             for(let i=0; i<cards.length; i++) {
                 card_container.appendChild(cards[i].render());
+                console.log(cards[i]);
             }
         } else {
             card_container.innerHTML = "";
@@ -80,9 +92,11 @@ categories.forEach((category) => {
                             courses_fromDB[i].cid,
                             courses_fromDB[i].ctitle,
                             courses_fromDB[i].cdesc_short,
-                            courses_fromDB[i].clink
-                        )
-                    );
+                            courses_fromDB[i].clink,
+                            session_logged_in,
+                            session_username
+                            )
+                            );
                 }
             }
             for(let i=0; i<cards.length; i++) {

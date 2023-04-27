@@ -28,7 +28,4 @@ while($row = mysqli_fetch_assoc($result)) {
         mysqli_close($connection);
     }
 }
-// if($is_password_correct) {
-// }
-
 ?>

@@ -1,9 +1,12 @@
 export class Card {
-    constructor(courseId, title, description, image='#') {
+    constructor(courseId, title, description, image='#', is_session_logged_in=false, session_username='#') {
+        this.courseId = courseId;
         this.title = title;
         this.description = description;
         this.courseLink = `../PHP/view-course.php?cid=${courseId}`;
         this.image = `${image}images/main.png`;
+        this.is_session_logged_in = is_session_logged_in;
+        this.session_username = session_username;
     }
   
     render() {
@@ -52,7 +55,29 @@ export class Card {
                     textDiv.appendChild(descriptionParagraph);
                 cardItem.appendChild(textDiv);
             cardLink.appendChild(cardItem);
-        cardElement.appendChild(cardLink);
+            
+            if(this.is_session_logged_in){
+                cardLink.addEventListener('click', () => {
+                    async function enrollCourse(session_username=this.session_username, courseId=this.courseId){
+                        let options = {
+                            method: "POST",
+                            headers: {"Content-type": "application/json"},
+                            body: JSON.stringify({set_username: session_username, set_courseId: courseId})
+                        };
+                        
+                        let response = await fetch("../PHP/_enroll-course-logic.php",options);
+                        let data = await response.json();
+                        return data;
+                    }
+                    enrollCourse(this.session_username, this.courseId)
+                    .then((result) => {
+                        console.log(result.something);
+                    }).catch((error) => {
+                        // console.log(error);
+                    });
+                });
+            }
+            cardElement.appendChild(cardLink);
   
         return cardElement;
     }

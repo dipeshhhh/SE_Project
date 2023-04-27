@@ -1,6 +1,7 @@
 <?php 
     include("../PHP/_set-navbar.php");
     include("../PHP/_database.php");
+    include("../PHP/_check-logged-in.php");
     
     $get_all_courses = "SELECT * FROM courses";
     $result = mysqli_query($connection, $get_all_courses); // No error here, it's a bug from a VS Code extention

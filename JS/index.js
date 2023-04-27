@@ -1,5 +1,9 @@
 import { Card } from "../JS/Modules/Card.js";
 
+if(session_logged_in.toString() == "1"){
+  session_logged_in = true;
+}
+
 // To shuffle the array coming from Database
 function shuffleArray(array) {
   for (let i = array.length - 1; i > 0; i--) {
@@ -23,7 +27,9 @@ for(let i=0; i<courses_fromDB.length; i++) {
         courses_fromDB[i].cid,
         courses_fromDB[i].ctitle,
         courses_fromDB[i].cdesc_short,
-        courses_fromDB[i].clink
+        courses_fromDB[i].clink,
+        session_logged_in,
+        session_username
       )
     );
   }
