@@ -8,7 +8,7 @@ main{
 
 #user-details{
     display: flex;
-    align-items: top;
+    align-items: center;
     justify-content: center;
     width: 87vw;
     margin: 0px 16px 16px 16px;
@@ -22,6 +22,7 @@ main{
     display: flex;
     flex-direction: row;
     justify-content: center;
+    align-items: center;
 
     font-family: var(--main-body-font);
     font-weight: 555;
@@ -35,52 +36,19 @@ main{
     margin:5px;
     text-align: left;
 }
-.up-button{
-    background-color: var(--main-bg-color);
-    color: var(--main-fg-color);
-    border-radius: 5px;
-    padding: 5px;    
-    line-height: 1.5;
+.key-item{
+    margin-top: 7px;
+    margin-bottom: 7px;
 }
-.up-button:hover{
-    background-color: var(--main-bg-highlight-color);
-    color: var(--main-highlight-color);
-}
-
-#changePassword-form{
-    display: none;
-}
-input[type="password"] {
-    /* width: 91%; */
-    padding: 0.5rem;
-    font-size: 1rem;
-    line-height: 1.5;
-    border: 1px solid #ced4da;
-    border-radius: 0.25rem;
-    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-}
-input[type="password"]:focus{
-    border-color: var(--main-highlight-color);
-    box-shadow: 0 0 0 0.2rem var(--main-highlight-color);
-}
-.error-message{
-    color: var(--main-error-color);
-    margin-top: 5px;
+.value-item{
+    margin-top: 7px;
+    margin-bottom: 7px;
 }
 .grow-space{
     display: flex;
     flex-grow: 1;
 }
-#edit-profile{
-    /* content: url("../res/GUI/edit.png"); */
-    transition: content 0.3s ease-in-out;
-    height: 75px;
-}
-#edit-profile:hover{
-    content: url("../res/GUI/edit-hover.png");
-}
 .up-heading{
-    /* display: inline; */
     text-align: center;
     margin: 20px;
     font-family: var(--main-header-font);

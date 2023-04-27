@@ -22,6 +22,9 @@ const profile_link = document.getElementById("profile-link");
 const logout_link = document.getElementById("logout-link");
 
 // Event Listener for profilelink here
+// profile_link.addEventListener('ciick', () => {
+//   window.location.href = "../PHP/user-profile.php";
+// })
 
 // logout logic
 logout_link.addEventListener('click', () => {

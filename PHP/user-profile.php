@@ -1,5 +1,42 @@
 <?php 
+    session_start();
     include("../PHP/_navbar-logged-in.php");
+    include("../PHP/_database.php");
+
+    // Getting uid
+    $get_uid = "SELECT * FROM users WHERE username = '".$_SESSION['username']."'";
+    $result_uid = mysqli_query($connection, $get_uid);
+    $user_info = array();
+    while($row1 = mysqli_fetch_assoc($result_uid)) {
+        $uid = $row1['uid'];
+        $user_info[] = $row1;
+    }
+    $user_info_json = json_encode($user_info);
+    
+    // Getting the cids
+    $get_cids = "SELECT cid FROM enrolled_courses WHERE uid='".$uid."'";
+    $result = mysqli_query($connection, $get_cids);
+    $cids = array();
+    while($row = mysqli_fetch_assoc($result)) {
+        $cids[] =  $row;
+    }
+    $cids_json = json_encode($cids);
+    
+    // Getting course content from cids
+    $courses = array();
+    foreach($cids as $cid){
+        foreach($cid as $ci){
+            $get_courses = "SELECT * FROM courses WHERE cid='".$ci."'";
+            $result = mysqli_query($connection, $get_courses);
+            while($row = mysqli_fetch_assoc($result)) {
+                $courses[] =  $row;
+            }            
+        }
+    }
+    $courses_json = json_encode($courses);
+
+    echo "<script>const userInfo_fromDB = " . $user_info_json . ";</script>";    
+    echo "<script>const courses_fromDB = " . $courses_json . ";</script>";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -18,29 +55,18 @@
         <section id="user-details">
             <div id="basic-details">
                 <div class="key">
-                    <p>First name: </p>
-                    <p>Last name: </p>
-                    <p>Username: </p>
-                    <p>Email: </p>
-                    <p>Password: </p>
+                    <p class="key-item">First name: </p>
+                    <p class="key-item">Last name: </p>
+                    <p class="key-item">Username: </p>
+                    <p class="key-item">Email: </p>
                 </div>
                 <div class="value">
-                    <p id="firstName"></p>
-                    <p id="lastName"><p>
-                    <p id="userName"></p>
-                    <p id="userEmail"></p>
-                    <button id="changePassword" class="up-button">Change Password</button>
-                    <form action="change-password.php" method="post" id="changePassword-form">
-                        <input type="password" name="old-password" id="old-password" class="up-input" placeholder="Old Password">
-                        <input type="password" name="new-password" id="new-password" class="up-input" placeholder="New Password">
-                        <input type="password" name="confirm-new-password" id="confirm-new-password" class="up-input" placeholder="Confirm New Password">
-                        <button type="submit" class="up-button" id="change-password-confirm">Change</button>
-                    </form>
-                    <div id="error-message" class="error-message"> </div>
+                    <p id="firstName" class="value-item"></p>
+                    <p id="lastName" class="value-item"><p>
+                    <p id="userName" class="value-item"></p>
+                    <p id="userEmail" class="value-item"></p>
                 </div>
             </div>
-            <div class="grow-space"> </div>
-            <img src="../res/GUI/edit.png" alt="Edit" id="edit-profile">
         </section>
         <section id="enrolled-courses">
             <h1 class="up-heading">Enrolled Courses</h1>
@@ -48,6 +74,6 @@
         </section>
     </main>
     <footer></footer>
-    <script src="../JS/user-profile.js"></script>
+    <script type="module" src="../JS/user-profile.js"></script>
 </body>
 </html>

@@ -19,11 +19,11 @@
             </li>
             <!-- dropdownbtn = lg-dropdown -->
             <li class="navbar__right">
-                <a href="#" id="user-name"><?php echo $_SESSION['username']?></a>
+                <a href="../PHP/user-profile.php" id="user-name"><?php echo $_SESSION['username']?></a>
                 <div class="lg-dropdown">
                     <a href="#" id="lg-dropbtn"></a>
                     <div class="dropdown-content">
-                        <a href="#" id="profile-link">Profile</a>
+                        <a href="../PHP/user-profile.php" id="profile-link">Profile</a>
                         <a href="#"id="logout-link">Logout</a>
                     </div>
                 </div>

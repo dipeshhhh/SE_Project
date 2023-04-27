@@ -68,7 +68,7 @@
         </section>
     </main>
     <footer></footer>
-    <script src="../JS/view-course.js"></script>
+    <script type="module" src="../JS/view-course.js"></script>
     <!-- <script src="../JS/loggedIn-index.js"></script> -->
 </body>
 </html>
