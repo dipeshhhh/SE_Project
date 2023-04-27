@@ -1,6 +1,5 @@
 <?php 
-    include("../HTML/navbar-everyone.html");
-    // include("../HTML/navbar-logged-in.html");
+    include("../PHP/set-navbar.php");
     include("../PHP/database.php");
 
     if (isset($_GET['cid'])) {

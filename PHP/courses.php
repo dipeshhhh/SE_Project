@@ -1,8 +1,6 @@
 <?php 
-    include("../HTML/navbar-everyone.html");
-    // include("../HTML/navbar-logged-in.html");
-    include("../PHP/database.php");
-    
+    include("../PHP/set-navbar.php");
+    include("../PHP/database.php");    
 
     $get_all_courses = "SELECT * FROM courses ORDER BY ctitle ASC";
     $get_all_categories = "SELECT * From categories GROUP BY category";

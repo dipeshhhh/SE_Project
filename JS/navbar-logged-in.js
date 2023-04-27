@@ -18,8 +18,12 @@ for(let i=0; i<3; i++){
 }
 ////////////////////////////////////////////////////////
 
-// This username will come from Db after starting the session
-userName_fromDB = "dipeshhhh_cvs";
+const profile_link = document.getElementById("profile-link");
+const logout_link = document.getElementById("logout-link");
 
-userName_show = document.getElementById("user-name");
-userName_show.textContent = `${userName_fromDB}`; 
+// Event Listener for profilelink here
+
+// logout logic
+logout_link.addEventListener('click', () => {
+  window.location.href = "../PHP/logout-logic.php";
+})

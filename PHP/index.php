@@ -1,10 +1,10 @@
 <?php 
-    include("../HTML/navbar-everyone.html");
+    include("../PHP/set-navbar.php");
     include("../PHP/database.php");
-
+    
     $get_all_courses = "SELECT * FROM courses";
     $result = mysqli_query($connection, $get_all_courses); // No error here, it's a bug from a VS Code extention
-
+    
     $courses = array();
 
     while($row = mysqli_fetch_assoc($result)) {
@@ -15,6 +15,7 @@
 
     // sending data to JavaScript
     echo "<script>const courses_fromDB = " . $courses_json . ";</script>";
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
