@@ -24,7 +24,7 @@ async function checkUserName(username) {
       body: JSON.stringify({check_username: username})
   };
 
-  let response = await fetch("../PHP/login-logic.php",options);
+  let response = await fetch("../PHP/_login-logic.php",options);
   let data = await response.json();
 
   return [data.username_exist];
@@ -37,7 +37,7 @@ async function loginUser(username, password){
     body: JSON.stringify({check_username: username, check_password: password})
   };
 
-  let response = await fetch("../PHP/login-user.php",options);
+  let response = await fetch("../PHP/_login-user.php",options);
   let data = await response.json();
 
   if(data.is_password_correct == false) {
