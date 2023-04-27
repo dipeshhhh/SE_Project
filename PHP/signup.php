@@ -1,6 +1,7 @@
 <?php
     include("../HTML/navbar-login-signup.html");
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -22,8 +23,8 @@
             <img src="#" alt="MonkeyLearn" class="card-loginSignup-item">
 
             <!-- Need php action here -->
-            <!-- <form id="signup-form" action="signup.php" method="post"> -->
-            <form id="loginSignup-form" method="post">
+            <form id="loginSignup-form" action="signup.php" method="post">
+            <!-- <form id="loginSignup-form" method="post"> -->
                 <div class="register-name">
                     <div class="register-name">
                         <input type="text" id="firstname" name="firstname" placeholder="First name">
@@ -52,6 +53,7 @@
 
                 <!-- To display error message the space between starting and ending tag is necessary -->
                 <div id="error_message" class="form-group error-message"> </div>
+                <div id="success_message" class="form-group success-message"> </div>
 
                 <div class="form-group">
                     <button type="submit" class="btn" id="register-button">Sign Up</button>

@@ -66,7 +66,13 @@ input[type="email"]:focus {
 
 .error-message{
     color: var(--main-error-color);
-    margin-top: 5px;
+    margin-top: 12px;
+}
+
+.success-message{
+    margin-top: 12px;
+    color: var(--main-correct-text-color);
+    font-weight: bold;
 }
 
 #incorrect-user, #register-error{
