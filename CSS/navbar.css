@@ -4,6 +4,16 @@ header {
     font-family: var(--main-header-font);
     font-weight: 750;    
 }
+#icon-and-name a img{
+    position: absolute;
+    left: 10px;
+    top: 2px;
+    width: 50px;
+    outline:none;
+    border: none;
+    margin: 0;
+    padding: 0;
+}
 #lg-dropbtn{
     height: 1rem;
     content: url("../res/GUI/expand-white.png");

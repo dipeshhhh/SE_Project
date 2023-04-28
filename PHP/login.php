@@ -17,7 +17,8 @@
         <div class="card-loginSignup">
             
             <!-- Icon here -->
-            <img src="../res/GUI/icon.png" alt="MonkeyLearn" class="card-loginSignup-item">
+            <a href="../PHP/index.php"><img src="../res/GUI/icon.png" alt="MonkeyLearn" class="card-loginSignup-item-s"></a>
+            <p>Login</p>
 
              <form action="login.php" id="loginSignup-form" method="post">
                 <div class="form-group">

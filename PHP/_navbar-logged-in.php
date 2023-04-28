@@ -4,7 +4,7 @@
         <ul class="navbar__menu">
             <li id="icon-and-name" class="navbar__left">
                 <!-- Icon here -->
-                <a href="../PHP/index.php"> <img src="" alt="Icon"> </a>
+                <a href="../PHP/index.php"> <img src="../res/GUI/icon.png" alt="Icon"> </a>
                 <a href="../PHP/index.php">MonkeyLearn</a>
             </li>
             <li id="courses" class="navbar__center">
