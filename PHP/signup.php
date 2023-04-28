@@ -20,11 +20,9 @@
         <div class="card-loginSignup">
 
             <!-- Icon here -->
-            <img src="#" alt="MonkeyLearn" class="card-loginSignup-item">
+            <img src="../res/GUI/icon.png" alt="MonkeyLearn" class="card-loginSignup-item">
 
-            <!-- Need php action here -->
             <form id="loginSignup-form" action="signup.php" method="post">
-            <!-- <form id="loginSignup-form" method="post"> -->
                 <div class="register-name">
                     <div class="register-name">
                         <input type="text" id="firstname" name="firstname" placeholder="First name">

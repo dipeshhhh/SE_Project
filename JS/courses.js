@@ -15,15 +15,9 @@ for(let i=0; i<courses_fromDB.length; i++) {
     );    
 }
 
-// debugging
-// console.log(courses_fromDB);
-// console.log(categories_fromDB);
-// console.log(complete_categories_fromDB);
 if(session_logged_in.toString() == "1"){
     session_logged_in = true;
 }
-// console.log(session_logged_in);
-// console.log(session_username);
 
 const card_container = document.getElementById("card-container");
 for(let i=0; i<cards.length; i++){

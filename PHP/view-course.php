@@ -27,7 +27,7 @@
         echo "<script> const videos_json = ".$videos_json."; const courseName_fromDB = ".$courseName_json."; </script>";
 
       } else {
-        echo "<script>alert('Illegal opening of this page go back!')</script>";
+        echo "<script>alert('Illegal opening of this page go back!'); window.location.href='../PHP/index.php';</script>";
       }
 ?>
 <!DOCTYPE html>
@@ -69,6 +69,5 @@
     </main>
     <footer></footer>
     <script type="module" src="../JS/view-course.js"></script>
-    <!-- <script src="../JS/loggedIn-index.js"></script> -->
 </body>
 </html>

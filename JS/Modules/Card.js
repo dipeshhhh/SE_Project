@@ -14,10 +14,6 @@ export class Card {
         const cardElement = document.createElement("div");
         cardElement.classList.add("card");
         
-        // Image size (px): 380 x 200 (W x H)
-        // Below image is for testing
-        // <img src="https://source.unsplash.com/380x200/?Code">
-        
             // Creating link to course (so that when card is clicked on user will go to the course page)
             const cardLink = document.createElement("a");
             cardLink.classList.add("link-to-course");

@@ -1,38 +1,5 @@
 import { Card } from "../JS/Modules/Card.js";
 
-let error_message = document.getElementById("error-message");
-function resetFocus(element) {
-    element.addEventListener("focus", () => {
-      element.style.boxShadow = "0 0 0 0.2rem var(--main-highlight-color)"
-    });
-    element.addEventListener("blur", () => {
-      element.style.boxShadow = "0 0 0 0 var(--main-highlight-color)"
-    });
-}
-
-function checkEmpty(element) {
-    if (element.value === "") {
-        element.style.boxShadow = "0 0 0 0.2rem var(--main-error-color)";
-        error_message.textContent = "Please fill in all the fields";
-        return true;
-    } else {
-        element.style.boxShadow = "";
-        resetFocus(element);
-        return false;
-    }
-}
-
-function checkAllFields(fields){
-    allFieldsFilled = true;
-    for(element of fields){
-        if(checkEmpty(element)){
-            allFieldsFilled = false;
-        }
-    }
-    return allFieldsFilled;
-}
-///////////////////////////////////////////////////////////
-// These will come from DB after starting the session
 let userName_fromDB = userInfo_fromDB[0].username;
 let firstName_fromDB = userInfo_fromDB[0].fname;
 let lastName_fromDB = userInfo_fromDB[0].lname;

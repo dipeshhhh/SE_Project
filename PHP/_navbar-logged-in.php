@@ -8,14 +8,7 @@
                 <a href="../PHP/index.php">MonkeyLearn</a>
             </li>
             <li id="courses" class="navbar__center">
-                <a href="../PHP/courses.php">Courses:</a>
-                
-                <!-- link to courses here (course names should be dynamically updated (top 3 most viewed courses))-->
-                
-                <!-- WARNING: The empty space between is necessary  -->
-                <a href="#" id="TC1"> </a>
-                <a href="#" id="TC2"> </a>
-                <a href="#" id="TC3"> </a>
+                <a href="../PHP/courses.php">Courses</a>
             </li>
             <!-- dropdownbtn = lg-dropdown -->
             <li class="navbar__right">

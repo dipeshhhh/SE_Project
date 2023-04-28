@@ -17,10 +17,8 @@
         <div class="card-loginSignup">
             
             <!-- Icon here -->
-            <img src="#" alt="MonkeyLearn" class="card-loginSignup-item">
+            <img src="../res/GUI/icon.png" alt="MonkeyLearn" class="card-loginSignup-item">
 
-             <!-- Need php action here -->
-             <!-- <form id="login-form" action="login.php" method="post"> -->
              <form action="login.php" id="loginSignup-form" method="post">
                 <div class="form-group">
                     <input type="text" id="username" name="username" placeholder="Username">
@@ -38,7 +36,6 @@
                     <button type="submit" class="btn">Login</button>
                 </div>
             </form>
-            <!-- Maybe say "Not Registered?" instead of "New here?" -->
             <h5 class="card-loginSignup-item"><p>New here? <a href="signup.php">Sign Up</a></p></h5>
         </div>
     </main>

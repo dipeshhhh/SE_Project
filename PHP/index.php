@@ -38,7 +38,6 @@
                 
                 <br>
 
-                <!-- This should also dynamically change as different course's names -->
                 <h4>
                     <span id="learnText">Learn </span><div id="text-container">
                         <span id="text"></span><span id="cursor"></span>
@@ -48,7 +47,6 @@
                 <p class="welcome-message">Welcome to MonkeyLearn! Our platform offers a wide range of courses taught by experts, designed to help you achieve your learning goals. With our user-friendly interface and interactive tools, learning has never been easier. Take courses at your own pace from anywhere in the world. Thank you for choosing us as your learning partner!</p>
             </div>
             <div class="welcome-image">
-                <!-- Need this image -->
                 <img src="../res/welcome/welcome.png" alt="Welcome Image" height="350px">
             </div>
         </section>

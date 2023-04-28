@@ -6,17 +6,14 @@
     $get_all_courses = "SELECT * FROM courses ORDER BY ctitle ASC";
     $get_all_categories = "SELECT * From categories GROUP BY category";
     $get_complete_categories = "SELECT * From categories";
-    // $get_required_courses = "SELECT courses.* FROM courses JOIN categories ON courses.cid = categories.cid AND categories.category = '".$input_category."'";
     
     $result = mysqli_query($connection, $get_all_courses); // No error here, it's a bug from a VS Code extention
     $result_category = mysqli_query($connection, $get_all_categories);
     $result_complete_category = mysqli_query($connection, $get_complete_categories);
-    // $required_result = mysqli_query($connection, $get_required_courses);
     
     $courses = array();
     $categories = array();
     $complete_categories = array();
-    // $required_courses = array();
 
     while($row = mysqli_fetch_assoc($result)) {
         $courses[] =  $row;
@@ -27,14 +24,10 @@
     while($row3 = mysqli_fetch_assoc($result_complete_category)) {
         $complete_categories[] =  $row3;
     }
-    // while($row3 = mysqli_fetch_assoc($required_result)) {
-    //     $required_courses[] = $row3;
-    // }
     
     $courses_json = json_encode($courses);
     $categories_json = json_encode($categories);
     $complete_categories_json = json_encode($complete_categories);
-    // $required_courses_json = json_encode($required_courses);
 
     // sending data to JavaScript
     echo "<script>const categories_fromDB = " . $categories_json . "; const courses_fromDB = " . $courses_json . "; const complete_categories_fromDB = ".$complete_categories_json."; </script>";
@@ -67,5 +60,4 @@
 
     </footer>
     <script type="module" src="../JS/courses.js"></script>
-    <!-- <script src="../JS/loggedIn-index.js"></script> -->
 </body>
